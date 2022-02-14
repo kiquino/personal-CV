@@ -1,2 +1,2 @@
-# personal-CV
-Espacio de mi sitio personal y CV
+# Sitio personal hecho en React
+ Muestra de trabajos y actividad académica
