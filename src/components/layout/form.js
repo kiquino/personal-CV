@@ -1,6 +1,6 @@
 import Button from "../individuals/button";
 import 'regenerator-runtime/runtime';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import React from "react";
 const Mailform = (props)=>{
@@ -15,6 +15,8 @@ const [loading, setLoading] = useState(false);
 const [errorClass,setErrorClass] = useState("");
 const [sendError,setError]= useState(false);
 const[emailSent,setEmailSent]=useState(false);
+const [fillError,setFillError]=useState(false);
+const [classState,setClassState]=useState("input-style");
 const[mensaje,setMensaje] = useState("");
 const [mailerState, setMailerState] = useState({
     name: "",
@@ -28,13 +30,21 @@ function handleStateChange(e){
     }));
 }
 
+
+
 const submitEmail = async (e)=>{
 
     e.preventDefault();
     if (mailerState.email ==="" ||mailerState.message ===""){
-        console.log("Porfavor, rellena todos los campos");
-    }
-    setLoading(true);
+        setEmailSent(true)
+        setErrorClass("fail")
+        setMensaje("Por favor, rellene los campos vacíos / Please fill the missing fields");
+        setClassState("input-style error-input");
+    }else{
+        setLoading(true);
+        setEmailSent(false);
+        setErrorClass("")
+         setClassState("input-style");
     axios.post('https://fathomless-spire-57502.herokuapp.com/send', {
         // axios.post('localhost:8000/send', {
         name: mailerState.name,
@@ -51,16 +61,20 @@ const submitEmail = async (e)=>{
         
     }
     ).then((res)=>{
+        setFillError(false);
         setLoading(false);
         setEmailSent(true);
+       
         (res.data.tragedy) ? setErrorClass("fail") : setErrorClass("success");
         (res.data.tragedy) ? setError(true) : setError(false);
         
     
-        (sendError) ?   setMensaje("Mensaje no Enviado 😢"):setMensaje("Mensaje Enviado 👌");
+        (sendError) ?   setMensaje("Mensaje no Enviado 🤕"):setMensaje("Mensaje Enviado 😄");
     })
     .then(()=>{
-       setTimeout(setEmailSent(false),6000)
+      setTimeout(() => {
+        setEmailSent(false);
+      }, 6000);
         setMailerState({
             email: "",
             message: "",
@@ -68,6 +82,8 @@ const submitEmail = async (e)=>{
         })
         
     })
+    }
+    
 }
 
     return(
@@ -82,16 +98,16 @@ const submitEmail = async (e)=>{
 </div></div>: <div> </div>}
 
 
-        {emailSent ? <div className={errorClass}> <p>{mensaje}</p>  </div>: <spam></spam> }
+        {emailSent ? <div className={errorClass}> <p>{mensaje}</p>  </div>: <div> </div>}
         
                     <div className="box-containers">
             <div className="input-containers">
            <label> Nombre: <input className="input-style" type="text" name="name" placeholder="Nombre" value={mailerState.name} onChange={handleStateChange}/></label>
-           <label >Email: <input className="input-style" type="email" name="email" placeholder="Email" value={mailerState.email} onChange={handleStateChange}/></label>
+           <label >Email: <input className={classState} type="email" name="email" placeholder="Email" value={mailerState.email} onChange={handleStateChange}/></label>
            <label >Mensaje:  <textarea
            id="message"
             name="message" 
-            className="input-style" 
+            className={classState}
             value={mailerState.message}
             placeholder="Mensaje"
             onChange={handleStateChange}

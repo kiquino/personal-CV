@@ -11,6 +11,11 @@ html {
   min-width: 350px;
 }
 
+.error-input {
+  -webkit-box-shadow: 4px 11px 15px -3px #f71e1e, 5px 22px 24px -3px rgba(0, 0, 0, 0.1) !important;
+          box-shadow: 4px 11px 15px -3px #f71e1e, 5px 22px 24px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
 footer {
   display: -webkit-box;
   display: -ms-flexbox;
