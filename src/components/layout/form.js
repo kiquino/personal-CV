@@ -31,6 +31,9 @@ function handleStateChange(e){
 const submitEmail = async (e)=>{
 
     e.preventDefault();
+    if (mailerState.email ==="" ||mailerState.message ===""){
+        console.log("Porfavor, rellena todos los campos");
+    }
     setLoading(true);
     axios.post('https://fathomless-spire-57502.herokuapp.com/send', {
         // axios.post('localhost:8000/send', {
@@ -86,6 +89,7 @@ const submitEmail = async (e)=>{
            <label> Nombre: <input className="input-style" type="text" name="name" placeholder="Nombre" value={mailerState.name} onChange={handleStateChange}/></label>
            <label >Email: <input className="input-style" type="email" name="email" placeholder="Email" value={mailerState.email} onChange={handleStateChange}/></label>
            <label >Mensaje:  <textarea
+           id="message"
             name="message" 
             className="input-style" 
             value={mailerState.message}
