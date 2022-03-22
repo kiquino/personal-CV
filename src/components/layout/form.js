@@ -3,6 +3,8 @@ import 'regenerator-runtime/runtime';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import React from "react";
+import Swal from 'sweetalert2';
+
 const Mailform = (props)=>{
 //  types:  text, email, password, number, tel, url, search, range, color, date, datetime, datetime-local, month, time, week.
 // sizes:  xs, s, m, l, xl, xxl, xxxl.
@@ -30,7 +32,7 @@ function handleStateChange(e){
     }));
 }
 
-
+const Swal = require('sweetalert2');
 
 const submitEmail = async (e)=>{
 
@@ -65,11 +67,30 @@ const submitEmail = async (e)=>{
         setLoading(false);
         setEmailSent(true);
        
-        (res.data.tragedy) ? setErrorClass("fail") : setErrorClass("success");
-        (res.data.tragedy) ? setError(true) : setError(false);
+       
         
-    
-        (sendError) ?   setMensaje("Mensaje no Enviado 🤕"):setMensaje("Mensaje Enviado 😄");
+        if (res.data.tragedy) {
+            setErrorClass("fail") 
+            setError(true)
+            Swal.fire({
+                title: 'Oops...',
+                text: res.data.message,
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+        }else{
+            setError(false)
+            setErrorClass("success")
+            Swal.fire({
+                title: '¡Gracias!',
+                text: 'Su mensaje ha sido enviado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+        }
+        
+       
+        // (sendError) ?   setMensaje("Mensaje no Enviado 🤕"):setMensaje("Mensaje Enviado 😄");
     })
     .then(()=>{
       setTimeout(() => {
