@@ -31,7 +31,7 @@ const Projects = () => {
             categoria:'all html CSS3/SCSS javascript practica',
             descripcion:'Landing page con diseño responsive, navegacion lateral con js',
             texto:'La práctica de Agnostic está realizada enteramente con codiigo própio en concepto de "renovar" el maquetado actual del sitio. Fue maquetada enteramente en HTML y CSS con responsive hecho en CSS y javascript, no se utilizaron guias ni frameworks. Cuenta con 2 formatos responsivos (Mobile/Desktop). Está actualmente a modo de demostración y fue realizada a lo largo de dos días.',
-            enlace:'https://dazzling-spence-b14e0e.netlify.app',
+            enlace:'https://github.com/kiquino/practicas/tree/Agnostic',
             actualidad:'Actualmente guardo un repositorio en github donde la gente puede ver la fuente.',
             duracion: "2 días",
             imagen:'../../agnostic.jpg',
@@ -77,7 +77,7 @@ const Projects = () => {
             duracion: "2 días",
             imagen:'../../ejercicio-lonovo.jpg',
             texto:'Esta practica fue realizada en en el plazo de 48hs con el concepto de copiar con la menor cantidad de elementos y puramente cambios en CSS3. ',
-            enlace:'https://github.com/kiquino/LENOVO',
+            enlace:'https://github.com/kiquino/practicas/tree/Lenovo',
             actualidad:'Actualmente el proyecto se encuentra en un repositorio de github público para que la gente pueda ver la fuente.',
             tools:{
                 html:'../../html5.png',
@@ -106,7 +106,7 @@ const Projects = () => {
             duracion: "2 semanas",
             imagen:'../../gador.jpg',
             texto:'Gador fue un trabajo realizado en conjunto con un diseñador Gráfico y un equipo en contacto con el cliente en una especie de metodología SCRUM. El proyecto fue maquetado en html5 y css con registro a través de PHP y con sistema de mensajeria de bienvenida con diseño personalizado de email con calendario.',
-            enlace:'',
+            enlace:'/',
             actualidad:'Actualmente el proyecto se encuentra en un repositorio de Github público.',
 
             tools:{
@@ -171,7 +171,7 @@ const Projects = () => {
             duracion: "1 mes",
             imagen:'../../thomson.jpg',
             texto:'Thomson Reuters fue un trabajo en conjunto con un diseñador gráfico y un equipo encargado de mediar con el cliente en una especie de metodología SCRUM. El sitio fue hecho en html5 y css3 en su totalidad. totalmente responsivo  y con un registro de usuarios con email de bienvenida personalizado.',
-            enlace:'',
+            enlace:'https://github.com/kiquino/clientes/tree/thompsonReuters',
             actulidad:'actualmente el sitio no se encuentra visible para el público y pronto será dispuesto en github sin elementos de la empresa para ser utilizada por la comunidad.',
             tools:{
                 html:'../../html5.png',
@@ -219,7 +219,7 @@ const Projects = () => {
             duracion: "2 semanas",
             imagen:'../../novoflor.jpg',
             texto:'Este trabajo fue una reconstrucción de un sitio existente de Ecommerce. Fue realizado en conjunto con una diseñadora gráfica. Esta hecho en html, css y php para el formulario de contacto.',
-            enlace:'https://github.com/kiquino/floreria',
+            enlace:'https://novoflor.com.ar/',
             actualidad:'Actualmente el sitio se encuentra en github en un repositorio publico.',
             tools:{
                 html:'../../html5.png',
