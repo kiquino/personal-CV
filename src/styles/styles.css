@@ -610,6 +610,10 @@ header .header-parallax img:nth-child(2) {
   color: white;
 }
 
+.educacion__title p::nth-child(1)::first-letter {
+  font-size: 10rem;
+}
+
 .studies {
   display: -webkit-box;
   display: -ms-flexbox;
